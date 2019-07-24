@@ -7,8 +7,12 @@ const drawingBoard = d3.select('.drawBoard');
 //console.log(drawingBoard);
 
 //add Data array                                                        (4)
-let randomData = [4, 15, 24, 28, 47];
-let i = 20;
+let randomData = [[0,14],[1,13],[2,9],[3,7],[4,6],[5,4],[6,2],[7,0],[8,-2],[9,-3]];
+let convertedArray = [];
+for (i = 0 ; randomData.length > i ; i++){
+        convertedArray.push(randomData[i][1]);
+};
+console.log(convertedArray)
 
 //add an svg element                                                    (2)
 const svg = drawingBoard.append('svg')
@@ -42,23 +46,30 @@ svg.append('line')
 
 // add rectangle to create data visualisation                          (5)
 const bar1 = svg.append('rect');
+const bar2 = svg.append('rect');
+const bar3 = svg.append('rect');
+const bar4 = svg.append('rect');
+const bar5 = svg.append('rect');
+const bar6 = svg.append('rect');
+const bar7 = svg.append('rect');
+const bar8 = svg.append('rect');
+const bar9 = svg.append('rect');
+const bar10 = svg.append('rect');
 
 //select all rectangles                                                 (6)
 const dataVisualization = d3.selectAll('rect');
 
 // give a position and size to each rectangle                           (7)
-// console.log(dataVisualization);                                      
-
-dataVisualization.data(randomData)
-    .attr('width', 100)
-    .attr('fill','black')
-    .attr('y', (d,i) => {
-            return 480 - (d*8);
+dataVisualization.data(convertedArray)
+        .attr('width', 50)
+        .attr('fill','black')
+        .attr('stroke', 'red')
+        .attr('y', (d,i) => {
+            return 480 - (d*10);
     })
     .attr('x', (d, i) =>{
-        return 40 + (i * 120);
+        return 40 + (i * 60);
     })
     .attr('height', (d,i) => {
-            return d * 8;
-    })
-    .attr('stroke', 'red');
+            return d * 10;
+    });
