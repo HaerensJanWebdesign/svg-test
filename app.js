@@ -16,6 +16,12 @@ const svg = drawingBoard.append('svg')
                         .attr('height', '500');
 
 // draw some elements                                                   (3)
+debugger;
+svg.append('rect')
+        .attr('width', '100%')
+        .attr('height', '100%')
+        .attr('fill', 'grey');
+
 svg.append('line')
         .attr('x1', 20)
         .attr('x2', 780)
@@ -44,18 +50,24 @@ const bar1 = svg.append('rect');
 const bar2 = svg.append('rect');
 const bar3 = svg.append('rect');
 const bar4 = svg.append('rect');
-const bar5 = svg.append('rect');
+const bar5 = svg.append('rect'); 
 
 //select all rectangles                                                 (6)
 const dataVisualization = d3.selectAll('rect');
 
-// console.log(dataVisualization);
+// give a position and size to each rectangle                           (7)
+// console.log(dataVisualization);                                      
 
 dataVisualization.data(randomData)
     .attr('width', 100)
     .attr('fill','black')
-    .attr('y', 80)
-    .attr('x', (d, i) =>{
-        return i * 105;
+    .attr('y', (d,i) => {
+            return 480 - (d*8);
     })
-    .attr('height', 400)
+    .attr('x', (d, i) =>{
+        return 40 + (i * 120);
+    })
+    .attr('height', (d,i) => {
+            return d * 8;
+    })
+    .attr('stroke', 'red');
