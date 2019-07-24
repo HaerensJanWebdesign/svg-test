@@ -16,11 +16,6 @@ const svg = drawingBoard.append('svg')
                         .attr('height', '500');
 
 // draw some elements                                                   (3)
-debugger;
-svg.append('rect')
-        .attr('width', '100%')
-        .attr('height', '100%')
-        .attr('fill', 'grey');
 
 svg.append('line')
         .attr('x1', 20)
@@ -45,12 +40,8 @@ svg.append('line')
 //         .attr('font-size', '2rem')
 //         .attr('stroke', '#1D1B1B');
 
-// add rectangles to create data visualisation                          (5)
+// add rectangle to create data visualisation                          (5)
 const bar1 = svg.append('rect');
-const bar2 = svg.append('rect');
-const bar3 = svg.append('rect');
-const bar4 = svg.append('rect');
-const bar5 = svg.append('rect'); 
 
 //select all rectangles                                                 (6)
 const dataVisualization = d3.selectAll('rect');
