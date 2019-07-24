@@ -35,6 +35,13 @@ svg.append('line')
         .attr('y2', 480)
         .attr('stroke', 'black');
 
+svg.append('line')
+        .attr('x1', 20)
+        .attr('x2', 780)
+        .attr('y1', 240)
+        .attr('y2', 240)
+        .attr('stroke', 'black');
+
 // // svg.append('text')
 //         .text('Epic SVG D3.js')
 //         .attr('x', 300)
@@ -65,11 +72,15 @@ dataVisualization.data(convertedArray)
         .attr('fill','black')
         .attr('stroke', 'red')
         .attr('y', (d,i) => {
-            return 480 - (d*10);
+                if (d >= 0){
+            return 240 - (d*10);
+                } else {
+                        return 240
+                }
     })
     .attr('x', (d, i) =>{
         return 40 + (i * 60);
     })
     .attr('height', (d,i) => {
-            return d * 10;
+            return Math.abs(d * 10);
     });
